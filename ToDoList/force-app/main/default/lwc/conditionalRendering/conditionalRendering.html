@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-input type="checkbox"
+                label="show value"
+                
+                onchange={handleChange}></lightning-input>
+                <div if:true={diplayCondition}>This box depends on checkbox</div>
+            
+            </lightning-layout-item>
+            <ul>
+            <template for:each={cityList} for:item="city">
+                <li key={city}>{city}</li>
+            </template>
+            </ul>
+            <template iterator:it={cityList}>
+                <p key={it.value}>{it.value} </p>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>

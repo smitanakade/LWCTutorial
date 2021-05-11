@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Calculator" icon-name="standard:formula" size="large" icon-position="right">
+        <lightning-layout multiple-rows="ture" >
+            <lightning-layout-item size="12" padding="around-medium">
+                <lightning-input type=number name="firstNumber" onchange={numberChangeHandler}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-medium">
+                <lightning-input type=number name="secondNumber" onchange={numberChangeHandler}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-medium">
+                <lightning-button-group>
+                    <lightning-button label="Addition"  icon-name="utility:add" icon-position="right" onclick={additionHandler}></lightning-button>
+                    <lightning-button label="Substraction"   icon-name="utility:dash" icon-position="right" onclick={substractionHandler}></lightning-button>
+                    <lightning-button label="Multiplication" variant="container"  icon-name="utility:close" icon-position="right" onclick={multiplicationHandler}></lightning-button>
+                    <lightning-button label="Division"  variant="container"  icon-name="utility:percent" icon-position="right" onclick={divisionHandler}></lightning-button>
+                </lightning-button-group>
+                <lightning-layout-item size="12" padding="around-medium">
+                    <lightning-formatted-text value={finalResult}>{finalResult}</lightning-formatted-text>
+</lightning-layout-item>
+<lightning-layout-item size="12" padding="around-medium">
+    <lightning-formatted-text value="This is previous Result">This is previous Result</lightning-formatted-text>
+
+    <ul>
+        <template for:each={previousResult} for:item="result">
+            <li key={result}>{result}</li>
+        </template>
+        
+    </ul>
+</lightning-layout-item>
+        </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    
+</template>
